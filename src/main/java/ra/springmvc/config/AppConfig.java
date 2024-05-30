@@ -28,7 +28,6 @@ import java.util.Properties;
 public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
 
     private ApplicationContext applicationContext;
-    // cau hinh thymeleaf
     @Bean
     public SpringResourceTemplateResolver templateResolver(){
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
@@ -61,7 +60,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     public void setApplicationContext(ApplicationContext applicationContext){
         this.applicationContext = applicationContext;
     }
-    // cấu hình database
+
     @Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -83,7 +82,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
         sessionFactoryBean.setHibernateProperties(properties);
         return sessionFactoryBean;
     }
-    // cấu hình kích thươc file upload
+
     @Bean(name = "multipartResolver")
     public MultipartResolver multipartResolver(){
         CommonsMultipartResolver resolver = new CommonsMultipartResolver();
@@ -91,7 +90,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
         return resolver;
     }
 
-    // cấu hình đường dẫn
+
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
